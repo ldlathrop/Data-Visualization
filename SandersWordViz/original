@@ -1,0 +1,65 @@
+var clinton;
+var words = []; // Set up array for words in file
+var frequency = []; // Set up array for frequency of each word
+var fr = 20;
+var clStream;
+
+// Load the table of Clinton's words and frequencies
+function preload() {
+  clinton = loadTable("cltop.csv", "header");
+}
+
+function setup() {
+  createCanvas(720, 400);
+  background(51);
+  frameRate(fr);
+  // Set web font to be used
+  textFont("Cabin:600:latin");
+  // Set 'word' and 'frequency' arrays from 'clinton' table
+  for (var i = 0; i < clinton.getRowCount(); i++) { // This was just getRowCount, but got an "undefined" error
+    //words = [];
+    //for(var j = 0; j < clinton.rowCount; j++) { // Same undefined error as above when using rowCount
+      words[i] = clinton.get(i, Words);
+      //}
+      //frequency = [];
+      //for (var k = 0; k < clinton.rowCount; k++) {
+        frequency[i] = clinton.getNum(i, Frequency);
+    //}
+  }
+}
+
+  // Create link to constructor
+  clStream = new Words (width/2, height/2) // Words should appear in the center at 14 point
+
+}
+
+function draw() {
+  clStream.move();
+  clStream.display();
+
+}
+
+// Create constructor function
+function Words(tempX, tempY) {
+  this.x = tempX;
+  this.y = tempY;
+  //this.size = tempSize;
+  this.word = words;
+  this.frequency = frequency;
+  this.speed = 2;
+
+  this.move = function() {
+    this.x += random(-this.speed, this.speed);
+    this.y += random(-this.speed, this.speed);
+  }
+
+  this.display = function() {
+    var freqGray = map(this.frequency, 8, 52, 102, 255);
+    var freqSize = map(this.frequency, 8, 52, 12, 36)
+    fill(freqGray);
+    noStroke();
+    textSize(freqSize);
+    text(this.word, 0, 0);
+
+  };
+}
