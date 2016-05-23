@@ -8,7 +8,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(720, 400);
     // iterate over the table rows
     for(var i=0; i<clinton.getRowCount(); i++){
         //- Get data out of the relevant columns for each row -//
@@ -49,8 +49,8 @@ function Word(word, frequency, x, y, size) {
     this.word = word;
     this.frequency = frequency;
     // set a random speed
-    this.vx = Math.random()*2-1;
-    this.vy = Math.random()*2-1;
+    this.vx = Math.random()*1-1;
+    this.vy = Math.random()*1-1;
 }
 
 // Attach pseudo-class methods to prototype;
@@ -59,6 +59,7 @@ Word.prototype.display = function() {
   this.x += this.vx;
   this.y += this.vy;
   var freqGray = map(this.frequency, 8, 52, 102, 255);
+  //var freqGray = map(this.frequency, 8, 52, random(255, 255, 255);
   var freqSize = map(this.frequency, 8, 52, 12, 48)
   fill(freqGray);
   textSize(freqSize);
