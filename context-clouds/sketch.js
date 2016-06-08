@@ -1,17 +1,16 @@
-/**
- * Clickable Random Image Groups (v1.0.1)
- * GoToLoop (2016-Jun-02)
- *
- * forum.Processing.org/two/discussion/16944/
- * interactivity-changing-image-upon-click-in-p5js
-*/
-var clContext;
 
-"use strict";
+
+var clContext;
+var x;
+var y;
+//var inds = [];
+//var statements = [];
+//var polarity = [];
+//var qty = statements/polarity | 0;
 
 const STATEMENTS = 118, CATEGORY = 3, QTY = STATEMENTS/CATEGORY | 0,
       POLARITY = 3,
-      states = Array(STATEMENTS), inds = Array(CATEGORY), cols = Array(POLARITY);
+      statements = Array(STATEMENTS), inds = Array(CATEGORY), polarity = Array(POLARITY);
 
       //load the table of Clinton's words and frequencies
 function preload() {
@@ -19,7 +18,7 @@ function preload() {
       }
 
 function setup() {
-  createCanvas(400, 647);
+  createCanvas(647, 400);
   background(51);
   // Calling noStroke once here to avoid unecessary repeated function calls
   noStroke();
@@ -27,50 +26,62 @@ function setup() {
   for(var i=0; i<clContext.getRowCount(); i++){
       //- Get data out of the relevant columns for each row -//
       var inds = clContext.get(i, "category");
-      var states = clContext.get(i, "statement");
-      var cols = clContext.get(i, "polarity")
+      var statements = clContext.get(i, "statement");
+      var polarity = clContext.get(i, "polarity")
     }
 
-  for (let i = 0; i < STATEMENTS; randomCategoryStates(i++));
+  for (let i = 0; i < statements; randomCategoryStates(i++));
+  // create your Statement object and add to
+  // the statemens array for use later
+  inds[i] = new Statement();
+
+
+    //console.info(inds);
 }
 
 function draw() {
-  for(var i=0; i<states.length; i++) {
+  if(mouseClicked == true){
+  for(var i=0; i<inds.length; i++) {
       inds[i].display();
   }
 }
-
-function mouseClicked() {
-  if((mouseIsPressed < width) && (mouseIsPressed < height)) {
-  randomCategoryStates(~~random(CATEGORY));
-  redraw();
 }
 
-// Function to display statements by category in a random fashion
-function randomCategoryStates(cat) {
-  let idx = inds[cat], rnd;
+function mouseClicked() {
+  if((mouseX < w) && (mouseY < h) {
+      randomCategoryStates(~~random(CATEGORY));
+      redraw();
+      return false;
+  }
+//missed closing brace:
+}
+
+// Function to display statements by a random category with each mouse click
+function randomCategoryStates(group) {
+  let idx = inds[group], rnd;
   while ((rnd = ~~random(QTY)) == idx);
-  inds[cat] = rnd;
+  inds[group] = rnd;
 }
 
 // Function to align statements, categories, and polarity
-function Statements() {
+//Statement or Statements?
+function Statement() {
   this.x = x;
   this.y = y;
+  this.xmax = 10;
+  this.ymax = 4;
   this.cat = inds;
-  this.statement = statement;
+  this.statement = statements;
   this.polarity = polarity;
-  // set a random x,y
-  this.vx = random();
-  this.vy = random();
+  // set a random x,y position for each statement
+  this.dx = (Math.random()*this.xmax) * (Math.random() < .5 ? -1 : 1);
+  this.dy = (Math.random()*this.ymax) * (Math.random() < .5 ? -1 : 1);
 }
-
 // Attach pseudo-class methods to prototype;
 // Maps polarity to color and x,y to random placement on canvas
 Statement.prototype.display = function() {
-  this.x += this.vx;
-  this.y += this.vy;
-  //var cols = map(this.polarity, -1, 1, #cd2626, #9400d3 #009acd); // Something appears wrong here, trying to map 3 categories to 3 hex colors
+  this.x += this.dx;
+  this.y += this.dy;
   var cols = map(this.polarity == -1, 205, 38, 38);
   var cols = map(this.polarity == 0, 148, 0, 211);
   var cols = map(this.polarity == 1, 0, 145, 205);
