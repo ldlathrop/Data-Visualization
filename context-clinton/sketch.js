@@ -55,6 +55,7 @@ function draw() {
   }
 }
 
+// Function from Processing/p5 suggestions
 function splitStringAtSpace(input, desiredLength) {
     // cast to String
     var inputString = String(input);
