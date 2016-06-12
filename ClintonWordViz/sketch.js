@@ -8,7 +8,9 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(200, 200);
+    canvas = createCanvas(300, 300);
+    canvas.mousePressed(inWidth);
+    background(51);
     // iterate over the table rows
     for(var i=0; i<clinton.getRowCount(); i++){
         //- Get data out of the relevant columns for each row -//
@@ -28,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-
+if (mouseIsPressed) {
   background(51);
   // Iterate through the Word objects and run their display method.
   // Calling noStroke once here to avoid unecessary repeated function calls
@@ -37,7 +39,7 @@ function draw() {
   for(var i=0; i<words.length; i++) {
       words[i].display();
   }
-
+}
 }
 
 
@@ -64,4 +66,9 @@ Word.prototype.display = function() {
   fill(freqGray);
   textSize(freqSize);
   text(this.word, this.x, this.y);
+}
+
+// Create functions for hiding and showing statements
+function inWidth() {
+  width = width+5;
 };

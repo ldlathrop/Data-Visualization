@@ -8,27 +8,21 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(400, 400);
+    canvas = createCanvas(300, 300);
+    canvas.mousePressed(inWidth);
     // iterate over the table rows
     for(var i=0; i<trump.getRowCount(); i++){
         //- Get data out of the relevant columns for each row -//
-        // From inspecting the data format it's
-        // clear that where the docs say 'ID'
-        // they mean 'index'; but you'd only use
-        // this if you don't have a header row
         var word = trump.get(i, "Words");
         var frequency = trump.get(i, "Frequency");
-
         // create your Word object and add to
         // the words array for use later
         words[i] = new Word(word, frequency, width/2, height/2, 14);
-
     }
-
 }
 
 function draw() {
-
+if (mouseIsPressed) {
   background(51);
   // Iterate through the Word objects and run their display method.
   // Calling noStroke once here to avoid unecessary repeated function calls
@@ -37,10 +31,8 @@ function draw() {
   for(var i=0; i<words.length; i++) {
       words[i].display();
   }
-
 }
-
-
+}
 
 function Word(word, frequency, x, y, size) {
     this.x = x;
@@ -63,4 +55,9 @@ Word.prototype.display = function() {
   fill(freqGray);
   textSize(freqSize);
   text(this.word, this.x, this.y);
+}
+
+// Create functions for hiding and showing statements
+function inWidth() {
+  width = width+5;
 };
