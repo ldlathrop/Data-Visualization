@@ -1,63 +1,90 @@
 var trump;
+var x;
+var y;
 // array to store a reference to the word objects
-var words = [];
+var bigrams = [];
 
-//load the table of Clinton's words and frequencies
+//load the table of Trump's bigrams and polarities
 function preload() {
-  trump = loadTable("trtop.csv", "header");
+  trump = loadTable("trBigramsPol.csv", "header");
 }
 
 function setup() {
-    canvas = createCanvas(300, 300);
-    canvas.mousePressed(inWidth);
-    // iterate over the table rows
-    for(var i=0; i<trump.getRowCount(); i++){
-        //- Get data out of the relevant columns for each row -//
-        var word = trump.get(i, "Words");
-        var frequency = trump.get(i, "Frequency");
-        // create your Word object and add to
-        // the words array for use later
-        words[i] = new Word(word, frequency, width/2, height/2, 14);
-    }
+  createCanvas(640, 360);
+  background(51);
+  noStroke();
+
+  for(var i=0; i<trump.getRowCount(); i++){
+      //- Get data out of the relevant columns for each row -//
+      var bigram = trump.get(i, "Bigrams");
+      var posneg = trump.get(i, "PosNeg");
+      bigrams[i] = new Bigram(bigram, posneg, x, y);
+  }
+  console.log(typeof bigram)
+  console.log(typeof bigrams)
 }
 
 function draw() {
-if (mouseIsPressed) {
-  background(51);
-  // Iterate through the Word objects and run their display method.
-  // Calling noStroke once here to avoid unecessary repeated function calls
-  noStroke();
+  // Set the left and top margin
+  var margin = 10;
+  translate(margin*4, margin*4);
 
-  for(var i=0; i<words.length; i++) {
-      words[i].display();
+  var gap = 10;
+
+  for (var y = 0; y < height-gap; y += gap) {
+    for (var x = 0; x < width-gap; x += gap) {
+      for(var i=0; i<bigrams.length; i++) {
+          console.log(bigrams[i].display());
+      }
+    }
   }
 }
-}
 
-function Word(word, frequency, x, y, size) {
+function Bigram(bigram, posneg, x, y) {
     this.x = x;
     this.y = y;
-    this.size = size;
-    this.word = word;
-    this.frequency = frequency;
-    // set a random speed
-    this.vx = Math.random()*2-1;
-    this.vy = Math.random()*2-1;
+    this.bigram = bigram;
+    this.posneg = posneg;
 }
 
-// Attach pseudo-class methods to prototype;
-// unless using the new ES2015 class syntax
-Word.prototype.display = function() {
-  this.x += this.vx;
-  this.y += this.vy;
-  var freqGray = map(this.frequency, 8, 52, 102, 255);
-  var freqSize = map(this.frequency, 8, 52, 12, 48)
-  fill(freqGray);
-  textSize(freqSize);
-  text(this.word, this.x, this.y);
+Bigram.prototype.display = function() {
+  if(this.posneg == 0.0557){
+    fill(255,54,54);
+  }
+  else if(this.posneg == 0.0602){
+    fill(255,134,54);
+  }
+  else if(this.posneg == 0.1088){
+    fill(255,174,54);
+  }
+  else if(this.posneg == 0.1174){
+    fill(255,215,54);
+  }
+  else if(this.posneg == 0.9268){
+    fill(255,255,54);
+  }
+  else if(this.posneg == 1.0789){
+    fill(189,235,50);
+  }
+  else if(this.posneg == 2.3151){
+    fill(45,215,45);
+  }
+  else if(this.posneg == 19.7155){
+    fill(45,172,215);
+  }
+  else if(this.posneg == 21.2715){
+    fill(45,116,215);
+  }
+  else if(this.posneg == 37.1158){
+    fill(74,45,215);
+  }
+  else if(this.posneg == 38.6719){
+    fill(158,45,215);
+  }
+  else if(this.posneg == 40.2279){
+    fill(225,47,151);
+  }
+  textSize(11);
+  textAlign(CENTER, CENTER);
+  text(this.bigram, this.x, this.y);
 }
-
-// Create functions for hiding and showing statements
-function inWidth() {
-  width = width+5;
-};

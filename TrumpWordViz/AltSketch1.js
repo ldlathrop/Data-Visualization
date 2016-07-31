@@ -1,10 +1,10 @@
-var clinton;
+var trump;
 // array to store a reference to the word objects
 var bigrams = [];
 
-//load the table of Clinton's bigrams and polarities
+//load the table of Trump's bigrams and polarities
 function preload() {
-  clinton = loadTable("cl.bigram.pol.csv", "header");
+  trump = loadTable("tr.bigram.pol.csv", "header");
 }
 
 function setup() {
@@ -12,10 +12,10 @@ function setup() {
     canvas.mousePressed(inWidth);
     background(51);
     // iterate over the table rows
-    for(var i=0; i<clinton.getRowCount(); i++){
+    for(var i=0; i<trump.getRowCount(); i++){
         //- Get data out of the relevant columns for each row -//
-        var bigram = clinton.get(i, "Bigram");
-        var polarity = clinton.get(i, "Polarity");
+        var bigram = trump.get(i, "Bigram");
+        var polarity = trump.get(i, "Polarity");
         // create your Bigram object and add to
         // the words array for use later
         bigrams[i] = new Bigram(bigram, polarity, width+5, height+5);
@@ -41,8 +41,8 @@ function Bigram(bigram, polarity, x, y) {
     this.bigram = bigram;
     this.polarity = polarity;
     // set a random speed
-    this.vx = Math.random()*1-0.5;
-    this.vy = Math.random()*1-0.5;
+    this.vx = Math.random()*1-0.8;
+    this.vy = Math.random()*1-0.8;
 }
 
 // Attach pseudo-class methods to prototype;

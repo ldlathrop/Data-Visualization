@@ -1,11 +1,11 @@
-var trContext;
+var clContext;
 var speed = 0.8;
 var statements = [];
 var canvas;
 
 //load the table of Clinton's statements and their polarity
 function preload() {
-  trContext = loadTable("tr_context.csv", "header");
+  clContext = loadTable("cl_context_rev.csv", "header");
 }
 
 
@@ -15,13 +15,13 @@ function setup() {
   background(51);
   noStroke();
   // iterate over the table rows called in 'preload()' from .csv file
-  for (var i = 0; i < trContext.getRowCount(); i++) {
-    var statement = trContext.get(i, "statement");
-    var polarity = trContext.get(i, "polarity");
+  for (var i = 0; i < clContext.getRowCount(); i++) {
+    var statement = clContext.get(i, "statement");
+    var polarity = clContext.get(i, "polarity");
     var stateSplit = split(statement, "<br>");
       for (var j = 0; j < stateSplit.length; j++) {
         var stateJoin = join(stateSplit, "\n");
-      statements[i] = new Statement(polarity, stateJoin);
+      statements[i] = new Statement(polarity, stateJoin, 50, 20);
     }
     }
 }
@@ -44,16 +44,17 @@ function Statement(polarity, stateJoin, x, y) {
   this.dx = random(-speed, speed);
   this.dy = random(-speed, speed);
 }
+
   // Attach pseudo-class methods to prototype;
   // Maps polarity to color and x,y to random placement on canvas
   Statement.prototype.display = function() {
     this.x += this.dx;
     this.y += this.dy;
     // Make statements move back on screen when they go off
-    if(this.x > width+10){
+    if(this.x > width+100){
       this.x = -10
     }
-    if(this.y > height+10) {
+    if(this.y > height+100) {
       this.y = -10
     }
     // Color statements according to postive or negative sentiment
@@ -63,7 +64,7 @@ function Statement(polarity, stateJoin, x, y) {
     else if(this.polarity == 1){
       fill(118,113,217);
     }
-    textSize(12);
+    textSize(11);
     text(this.stateJoin, this.x, this.y)
 }
 

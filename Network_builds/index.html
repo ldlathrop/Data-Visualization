@@ -3,12 +3,13 @@
 <head>
 
   <meta charset=utf-8 />
-  <title>Hillary Clinton</title>
+  <title>Donald Trump</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 
   <script src="sigma.min.js"></script>
-  <script src="plugins/sigma.parsers.gexf.min.js"></script>
+  <script src="plugins/sigma.parsers.json.min.js"></script>
+  <script type="text/javascript" src="plugins/sigma.layout.forceAtlas2.min.js"></script>
 
   <style>
     body {margin:0; padding:0;}
@@ -76,8 +77,8 @@
     });
 
     // Parses JSON file to fill the graph
-    sigma.parsers.gexf(
-      "clinton.gexf",
+    sigma.parsers.json(
+      "trump.json",
       sigInst,
       function() {
         //  Little hack here:

@@ -1,20 +1,20 @@
 id,category,statement,nchar,polarity
-46,2,That's forced thousands of people out of the neighborhoods where they lived for years.,103,-1
-47,2,And I don't think the federal government should be making money off of sending young people to college.,120,-1
-48,2,"And like Flint, they tend to be places that are home to poor people and people of color.",122,-1
-49,2,And we Democrats agree on defending all of our rights civil rights and voting for people with disabilities.,124,1
-51,2,I read an article which said that we had young people serving in our military whose families were eligible for stamps.,135,-1
-52,2,"I will work to improve the rights of people with disabilities, because we need to help them become more self-sufficient.",137,1
-53,2,And I particularly want to find ways to encourage young people to start small businesses. And minority owned and women-owned ,142,1
-59,2,"If we don't do more of it, if we don't fix our problems and give more people the belief  \r\n that we are moving forward together, we will not recognize this country that we love.",190,1
-60,2,And our campaign is about restoring people's confidence in our ability \r\n to solve problems together by delivering results that help people follow their own dreams.,195,1
-61,2,"Particularly at a time when anti-Semitism is on the rise across the world, especially in Europe, \r\n we must repudiate all efforts to malign,  isolate and undermine Israel and the Jewish people. ",212,-1
-63,2,"And I am aware that too many people feel at the mercy of forces too big for anyone to control, \r\n  and they just worry that those of us in politics put our own interests ahead of the national interest.",219,-1
-65,2,So my plan devotes $20 billion specifically to help young people find work and $5 billion \r\n to help people  who have paid their debt to society find jobs and support when they get out of prison. ,231,1
-67,2,"You stand up and always have against gun violence, advocate for criminal justice reform, \r\n help young people find jobs,  hold corporations accountable, and in a million ways, lift up voices that too often go unheard.",235,1
-68,2,"And then once we get the interest rates down, which has been outrageously high for student debt,  \r\nwe're going to help people transfer into programs where you only have to pay your loan back as a percent of your income.",239,1
-73,2,"They are standing up for criminal justice reform and they are standing up against\r\n the epidemic of gun violence  that takes on average, 90 people a day. \r\n That is 33,000 people a year killed by guns in America, every year.",258,-1
-74,2,"And she is speaking for so many people across our country who feel beaten down, \r\nleft out and left behind, people who have worked hard and done their part,\r\n but just can't seem to get ahead, and find it tough even to get by.",261,-1
-75,2,"We can lift up people and places who've been left out, from our inner cities to Appalachia,\r\n in every manufacturing town hollowed out when the factory closed, \r\n every community scarred by substance abuse, every home where a child goes to bed hungry.",273,1
-76,2,"And those people who are nervous, worried, fearful, even angry about their lives, \r\n about what's happening in our country, I will do my very best to reach out to them to create an atmosphere,\r\n  an opportunity for them to feel that they, too, count, and they too will have a part of our American family.",325,1
-77,2,"But despite what other candidates say, we believe in the goodness of our people  and the greatness of our nation.\r\n And if anyone doubts that, just let them travel across this country, \r\n as I've done in this campaign the past year, hearing people's stories, learning about their struggles.",328,1
+46,9,That's forced thousands of people out of the neighborhoods where they lived for years.,103,-1
+47,8,And I don't think the federal government should be making money off of sending young people to college.,120,-1
+48,7,"And like Flint, they tend to be places that are home to poor people and people of color.",122,-1
+49,6,And we Democrats agree on defending all of our rights civil rights and voting for people with disabilities.,124,1
+51,5,I read an article which said that we had young people serving <br>in our military whose families were eligible for stamps.,135,-1
+52,4,"I will work to improve the rights of people with disabilities, <br>because we need to help them become more self-sufficient.",137,1
+53,3,And I particularly want to find ways to encourage young people <br>to start small businesses. And minority owned and women-owned ,142,1
+59,2,"If we don't do more of it, if we don't fix our problems <br>and give more people the belief  that we are moving forward together, <br>we will not recognize this country that we love.",190,1
+60,1,And our campaign is about restoring people's confidence <br>in our ability to solve problems together by delivering <br>results that help people follow their own dreams.,195,1
+61,1,"Particularly at a time when anti-Semitism is on the rise across the world,<br> especially in Europe, we must repudiate all efforts to malign, <br> isolate and undermine Israel and the Jewish people. ",212,-1
+63,2,"And I am aware that too many people feel at the mercy of forces<br> too big for anyone to control,  and they just worry that those of us in politics<br> put our own interests ahead of the national interest.",219,-1
+65,3,So my plan devotes $20 billion specifically to help young people find work<br> and $5 billion to help people  who have paid their debt to society <br>find jobs and support when they get out of prison. ,231,1
+67,4,"You stand up and always have against gun violence, advocate<br> for criminal justice reform, help young people find jobs, <br> hold corporations accountable, and in a million ways, <br>lift up voices that too often go unheard.",235,1
+68,5,"And then once we get the interest rates down, which has been<br> outrageously high for student debt,  we're going to help people transfer into programs<br> where you only have to pay your loan back as a percent of your income.",239,1
+73,6,"They are standing up for criminal justice reform and they are<br> standing up against the epidemic of gun violence that takes on average, <br>90 people a day.  That is 33,000 people a year<br> killed by guns in America, every year.",258,-1
+74,7,"And she is speaking for so many people across our country <br>who feel beaten down, left out and left behind, <br>people who have worked hard and done their part, but just can't <br>seem to get ahead, and find it tough even to get by.",261,-1
+75,8,"We can lift up people and places who've been left out, <br>from our inner cities to Appalachia, in every manufacturing town <br>hollowed out when the factory closed,  every community scarred<br> by substance abuse, every home where a child goes to bed hungry.",273,1
+76,9,"And those people who are nervous, worried, fearful, <br>even angry about their lives, about what's happening in our country, <br>I will do my very best to reach out to them to create an atmosphere,<br>  an opportunity for them to feel that they, too, count, <br>and they too will have a part of our American family.",325,1
+77,10,"But despite what other candidates say, we believe <br>in the goodness of our people and the greatness of our nation. <br>And if anyone doubts that, just let them travel<br> across this country,  as I've done in this campaign the past year,<br> hearing people's stories, learning about their struggles.",328,1
